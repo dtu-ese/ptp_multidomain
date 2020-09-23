@@ -1,0 +1,3 @@
+package multidomain;
+
+@license(LGPL);

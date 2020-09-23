@@ -1,0 +1,4 @@
+#!/bin/sh
+cd `dirname $0`
+../src/multidomain -n .:../src $*
+# for shared lib, use: opp_run -l ../src/multidomain -n .:../src $*
