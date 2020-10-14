@@ -49,12 +49,31 @@ class BoundNode(NedNode):
         print("Adding conn %s <> %s (%d) (local gate %d) " % (self.name, remote, domain, self.used_ports[domain]))
         self.used_ports[domain] += 1
 
+class TCNode(NedNode):
+    PORTS_PER_DOMAIN = 10
+    NUM_DOMAINS = 9
+
+    def __init__(self, n_type, name, hpos, vpos, indent=1):
+        NedNode.__init__(self, n_type, name, hpos, vpos)
+        self.used_ports = {}
+        for i in range(TCNode.NUM_DOMAINS):
+            self.used_ports[i] = i * 10
+        self.conns = {}
+
+    def add_conn(self, remote, domain):
+        if remote + str(domain) in self.conns:
+            return
+        self.conns[remote + str(domain)] = self.used_ports[domain]
+        print("Adding conn %s <> %s (%d) (local gate %d) " % (self.name, remote, domain, self.used_ports[domain]))
+        self.used_ports[domain] += 1
+
 class NedNetwork():
     H_ADD = 111
     V_ADD = 111
     MASTER_TYPE = "RedundantPTPMaster"
     SLAVE_TYPE = "RedundantPTPSlave"
     BOUND_TYPE = "RedundantPTPBound"
+    TC_TYPE = "RedundantPTPTransparent"
     LINK_TYPE = "GigabitCable20cm"
 
     def __init__(self, name):
@@ -78,6 +97,13 @@ class NedNetwork():
             (n+1) * NedNetwork.H_ADD, NedNetwork.V_ADD * 3)
         self.bounds.append(bound)
         self.bounds_map[name] = bound
+
+    def add_transparent(self, name):
+        n = len(self.bounds)
+        tc = TCNode(NedNetwork.TC_TYPE, name,
+            (n+1) * NedNetwork.H_ADD, NedNetwork.V_ADD * 3)
+        self.bounds.append(tc)
+        self.bounds_map[name] = tc
 
     def add_slave(self, name):
         n = len(self.slaves)
@@ -155,7 +181,8 @@ def translate(gvfile, swpref, masters):
         name = v.get_name()
 
         if name.startswith(swpref):
-            net.add_bound(name)
+            # net.add_bound(name)
+            net.add_transparent(name)
         elif name in masters:
             net.add_master(name)
         else:
