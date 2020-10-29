@@ -67,6 +67,26 @@ class TCNode(NedNode):
         print("Adding conn %s <> %s (%d) (local gate %d) " % (self.name, remote, domain, self.used_ports[domain]))
         self.used_ports[domain] += 1
 
+class TimeDiffObserver():
+    def __init__(self, name, nodea, nodeb, hpos, vpos, indent=1):
+        self.type = "TimeDiffObserver"
+        self.name = name
+        self.hpos = hpos
+        self.vpos = vpos
+        self.clocka = nodea
+        self.clockb = nodeb
+        self.indent = indent
+
+    def __str__(self):
+        r = ""
+        t = "\t" * self.indent
+        r += t + "%s: %s {\n" % (self.name, self.type)
+        r += t + "\t\t@display(\"p=%d,%d\");\n" % (self.hpos, self.vpos)
+        r += t + "\t\tClockPath1 = default(^.%s.NIC.Clock);\n" % (self.clocka)
+        r += t + "\t\tClockPath1 = default(^.%s.NIC.Clock);\n" % (self.clockb)
+        r += t + "}"
+        return r
+
 class NedNetwork():
     H_ADD = 111
     V_ADD = 111
@@ -82,6 +102,7 @@ class NedNetwork():
         self.bounds = []
         self.bounds_map = {}
         self.slaves = []
+        self.observers = []
         self.connections = set()
         self.hsize = 0
         self.vsize = 0
@@ -110,6 +131,11 @@ class NedNetwork():
         self.slaves.append(NedNode(NedNetwork.SLAVE_TYPE, name,
             (n+1) * NedNetwork.H_ADD, NedNetwork.V_ADD * 6))
 
+    def add_observer(self, name, nodeA, nodeB):
+        n = len(self.observers)
+        self.observers.append(TimeDiffObserver(name, nodeA, nodeB,
+            (n+1) * NedNetwork.H_ADD, NedNetwork.V_ADD * 3))
+
     def add_conn(self, a, b, domain):
         src,dst = sorted([a,b])
         if src in self.bounds_map:
@@ -136,6 +162,9 @@ class NedNetwork():
             r += str(x) + "\n"
         r += "\t// Slave nodes\n"
         for x in self.slaves:
+            r += str(x) + "\n"
+        r += "\t// Observer nodes\n"
+        for x in self.observers:
             r += str(x) + "\n"
 
         antidupe = []
@@ -166,9 +195,11 @@ def rec_add_neighbors(G, net, node, domain, visited=[]):
     visited.append(node)
     neighbors = G.neighbors(node)
     unvisited = [x for x in neighbors if x not in visited]
+    index = 0
     for n in unvisited:
         s = sorted([node, n]) #make sure we always use the same order to avoid dupes
         net.add_conn(s[0], s[1], domain)
+        index += 1
         rec_add_neighbors(G, net, n, domain, visited)
 
 def translate(gvfile, swpref, masters):
@@ -192,6 +223,15 @@ def translate(gvfile, swpref, masters):
     for m in masters:
         rec_add_neighbors(G, net, m, domain, [] + masters)
         domain += 1
+            # net.add_observer("timeDiffObserver_%d" % index, s[0] + ".Master_1", s[1] + ".Slave_1")
+            # net.add_observer("timeDiffObserver_%d" % index, s[0] + ".Master_2", s[1] + ".Slave_2")
+            # net.add_observer("timeDiffObserver_%d" % index, s[0] + ".Master_3", s[1] + ".Slave_3")
+            # net.add_observer("timeDiffObserver_%d" % index, s[0] + ".Master_4", s[1] + ".Slave_4")
+            # net.add_observer("timeDiffObserver_%d" % index, s[0] + ".Master_5", s[1] + ".Slave_5")
+            # net.add_observer("timeDiffObserver_%d" % index, s[0] + ".Master_6", s[1] + ".Slave_6")
+            # net.add_observer("timeDiffObserver_%d" % index, s[0] + ".Master_7", s[1] + ".Slave_7")
+            # net.add_observer("timeDiffObserver_%d" % index, s[0] + ".Master_8", s[1] + ".Slave_8")
+            # net.add_observer("timeDiffObserver_%d" % index, s[0] + ".Master_9", s[1] + ".Slave_9")
 
     #preamble
     print("// You will probably want to change this package name to something suitable")
