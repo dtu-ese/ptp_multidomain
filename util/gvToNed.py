@@ -83,7 +83,7 @@ class TimeDiffObserver():
         r += t + "%s: %s {\n" % (self.name, self.type)
         r += t + "\t\t@display(\"p=%d,%d\");\n" % (self.hpos, self.vpos)
         r += t + "\t\tClockPath1 = default(\"^.%s.NIC.Clock\");\n" % (self.clocka)
-        r += t + "\t\tClockPath1 = default(\"^.%s.NIC.Clock\");\n" % (self.clockb)
+        r += t + "\t\tClockPath2 = default(\"^.%s.NIC.Clock\");\n" % (self.clockb)
         r += t + "}"
         return r
 
@@ -199,8 +199,8 @@ def rec_add_neighbors(G, net, node, domain, master, visited=[]):
 
     # Add observer between slave and master
     if is_slave(node, net):
-        net.add_observer("obs_%s_%s_%d" % (node, master, domain),
-                    master+ ".Master_%d" % (domain), node+ ".Slave_%d" % (domain) )
+        net.add_observer("obs_%s_%s_%d" % (node, master, domain+1),
+                    master+ ".Master_%d" % (domain+1), node+ ".Slave_%d" % (domain+1) )
 
 
     for n in unvisited:
