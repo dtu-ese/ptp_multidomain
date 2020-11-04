@@ -1,0 +1,14 @@
+<scenario>
+    <at t="200">
+        <disconnect src-module="CTRL1.Master_1" src-gate="ethg[0]" />
+    </at>
+    <at t="300">
+        <disconnect src-module="CTRL1.Master_2" src-gate="ethg[0]" />
+    </at>
+    <at t="400">
+        <disconnect src-module="CTRL1.Master_3" src-gate="ethg[0]" />
+    </at>
+    <at t="500">
+        <disconnect src-module="CTRL1.Master_4" src-gate="ethg[0]" />
+    </at>
+</scenario>
