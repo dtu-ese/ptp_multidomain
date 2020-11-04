@@ -189,18 +189,31 @@ class NedNetwork():
         r += "}\n"
         return r
 
-def rec_add_neighbors(G, net, node, domain, visited=[]):
+def rec_add_neighbors(G, net, node, domain, master, visited=[]):
     if node is None:
         return
     visited.append(node)
     neighbors = G.neighbors(node)
     unvisited = [x for x in neighbors if x not in visited]
     index = 0
+
+    # Add observer between slave and master
+    if is_slave(node, net):
+        net.add_observer("obs_%s_%s_%d" % (node, master, domain),
+                    master+ ".Master_%d" % (domain), node+ ".Slave_%d" % (domain) )
+
+
     for n in unvisited:
         s = sorted([node, n]) #make sure we always use the same order to avoid dupes
         net.add_conn(s[0], s[1], domain)
         index += 1
-        rec_add_neighbors(G, net, n, domain, visited)
+        rec_add_neighbors(G, net, n, domain, master, visited)
+
+def is_slave(name, net):
+    for x in net.slaves:
+        if x.name == name:
+            return True
+    return False
 
 def translate(gvfile, swpref, masters):
     gname = gvfile.strip(".gv")
@@ -221,9 +234,8 @@ def translate(gvfile, swpref, masters):
 
     domain = 0
     for m in masters:
-        rec_add_neighbors(G, net, m, domain, [] + masters)
+        rec_add_neighbors(G, net, m, domain, m, [] + masters)
         domain += 1
-            # net.add_observer("timeDiffObserver_%d" % index, s[0] + ".Master_1", s[1] + ".Slave_1")
             # net.add_observer("timeDiffObserver_%d" % index, s[0] + ".Master_2", s[1] + ".Slave_2")
             # net.add_observer("timeDiffObserver_%d" % index, s[0] + ".Master_3", s[1] + ".Slave_3")
             # net.add_observer("timeDiffObserver_%d" % index, s[0] + ".Master_4", s[1] + ".Slave_4")
