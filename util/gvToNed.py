@@ -82,8 +82,8 @@ class TimeDiffObserver():
         t = "\t" * self.indent
         r += t + "%s: %s {\n" % (self.name, self.type)
         r += t + "\t\t@display(\"p=%d,%d\");\n" % (self.hpos, self.vpos)
-        r += t + "\t\tClockPath1 = default(^.%s.NIC.Clock);\n" % (self.clocka)
-        r += t + "\t\tClockPath1 = default(^.%s.NIC.Clock);\n" % (self.clockb)
+        r += t + "\t\tClockPath1 = default(\"^.%s.NIC.Clock\");\n" % (self.clocka)
+        r += t + "\t\tClockPath1 = default(\"^.%s.NIC.Clock\");\n" % (self.clockb)
         r += t + "}"
         return r
 
