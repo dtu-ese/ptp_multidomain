@@ -1,5 +1,5 @@
 <scenario>
-    <at t="10">
-        <disconnect src-module="Master_1_C_1" src-gate="ethg[0]" />
+    <at t="500">
+        <disconnect src-module="Master_1" src-gate="ethg[0]" />
     </at>
 </scenario>

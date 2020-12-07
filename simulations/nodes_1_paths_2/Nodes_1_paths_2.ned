@@ -20,89 +20,118 @@ package multidomain.simulations.nodes_1_paths_2;
 // ======================================================
 
 import inet.world.scenario.ScenarioManager;
-import libptp.Components.Nodes.*;
-import libptp.Components.Cables.*;
+import libptp.Components.Cables.GigabitCable20cm;
+import libptp.Components.Nodes.PTP_EN_E2E_2S_SO;
+import libptp.Components.Nodes.PTP_RD_EN_E2E_2S_M1;
+import libptp.Components.Nodes.PTP_RD_EN_E2E_2S_SO;
+import libptp.Components.Nodes.PTP_TC_E2E_2S_M3;
 import libptp.Components.Utilities.TimeDiffObserver.TimeDiffObserver;
 
 
 network Nodes1Paths2
 {
-    @display("bgb=590,481");
+    @display("bgb=951,363;bgl=2");
     types:
     submodules:
 
-        Master_1_C_1: PTP_EN_E2E_1S_M2 {
+        Master_1: PTP_RD_EN_E2E_2S_M1 {
             parameters:
-                @display("p=111,70");
-
-            gates:
-                ethg[2];
-        }
-
-        Master_1_C_2: PTP_EN_E2E_1S_M2 {
-            parameters:
-                @display("p=211,70");
-                PTP_Stack.DomainNumber = "DOMAIN_ALTERNATE_1";
-
-            gates:
-                ethg[2];
-        }
-
-        Bound_1: PTP_BC_E2E_1S_M3 {
-            parameters:
-                @display("p=111,200");
-
+                @display("p=490,74");
+                PTP_Stack[0].DomainNumber = "DOMAIN_DEFAULT";
+                PTP_Stack[0].RedundantVoting = true;
+                PTP_Stack[1].DomainNumber = "DOMAIN_ALTERNATE_1";
+                PTP_Stack[1].RedundantVoting = true;
+                PTP_Stack[2].DomainNumber = "DOMAIN_ALTERNATE_2";
+                PTP_Stack[2].RedundantVoting = true;
+//                PTP_Stack[3].DomainNumber = "DOMAIN_ALTERNATE_3";
+//                PTP_Stack[3].RedundantVoting = true;
             gates:
                 ethg[3];
         }
 
-        Bound_2: PTP_BC_E2E_1S_M3 {
+        Switch_1: PTP_TC_E2E_2S_M3 {
             parameters:
-                @display("p=211,200");
-                PTP_Stack.DomainNumber = "DOMAIN_ALTERNATE_1";
-
+                @display("p=276,184");
             gates:
                 ethg[3];
         }
 
-        Node_1_C_1: PTP_EN_E2E_1S_SO {
+        Switch_2: PTP_TC_E2E_2S_M3 {
             parameters:
-                @display("p=111,300");
+                @display("p=427,184");
+            gates:
+                ethg[3];
+        }
 
+        Switch_3: PTP_TC_E2E_2S_M3 {
+            parameters:
+                @display("p=553,184");
+            gates:
+                ethg[3];
+        }
+
+
+        Switch_4: PTP_TC_E2E_2S_M3 {
+            parameters:
+                @display("p=686,184");
+            gates:
+                ethg[3];
+        }
+
+
+        VotingSlave_1: PTP_RD_EN_E2E_2S_SO {
+            parameters:
+                @display("p=490,300");
+                PTP_Stack[0].DomainNumber = "DOMAIN_DEFAULT";
+                PTP_Stack[0].RedundantVoting = true;
+                PTP_Stack[1].DomainNumber = "DOMAIN_ALTERNATE_1";
+                PTP_Stack[1].RedundantVoting = true;
+                PTP_Stack[2].DomainNumber = "DOMAIN_ALTERNATE_2";
+                PTP_Stack[2].RedundantVoting = true;
+//                PTP_Stack[3].DomainNumber = "DOMAIN_ALTERNATE_3";
+//                PTP_Stack[3].RedundantVoting = true;
+            gates:
+                ethg[3];
+        }
+
+        StandardSlave_1: PTP_EN_E2E_2S_SO {
+            parameters:
+                @display("p=276,300");
+                PTP_Stack.DomainNumber = "DOMAIN_DEFAULT";
+                PTP_Stack.RedundantVoting = false;
             gates:
                 ethg[1];
         }
 
-        Node_1_C_2: PTP_EN_E2E_1S_SO {
-            parameters:
-                @display("p=211,300");
-                PTP_Stack.DomainNumber = "DOMAIN_ALTERNATE_1";
-
-            gates:
-                ethg[1];
+        timeDiffObserver_Voted: TimeDiffObserver {
+            @display("p=686,309");
+            ClockPath1 = default("^.Master_1.Clock");
+            ClockPath2 = default("^.VotingSlave_1.Clock");
         }
 
-        timeDiffObserver_1: TimeDiffObserver {
-            @display("p=111,400");
-            ClockPath1 = default("^.Master_1_C_1.NIC.Clock");
-            ClockPath2 = default("^.Node_1_C_1.NIC.Clock");
+        timeDiffObserver_Std: TimeDiffObserver {
+            @display("p=106,300");
+            ClockPath1 = default("^.Master_1.Clock");
+            ClockPath2 = default("^.StandardSlave_1.NIC.Clock");
         }
 
-        timeDiffObserver_2: TimeDiffObserver {
-            @display("p=211,400");
-            ClockPath1 = default("^.Master_1_C_2.NIC.Clock");
-            ClockPath2 = default("^.Node_1_C_2.NIC.Clock");
-        }
         scenarioManager: ScenarioManager {
-            @display("p=461,50");
+            @display("p=106,74");
+            script = xmldoc("scenario.xml");
         }
+
     connections allowunconnected:
 
-        Master_1_C_1.ethg[1] <--> GigabitCable20cm <--> Bound_2.ethg[0];
-        Master_1_C_2.ethg[0] <--> GigabitCable20cm <--> Bound_1.ethg[1];
-        Master_1_C_2.ethg[1] <--> GigabitCable20cm <--> Bound_2.ethg[1];
-        Bound_1.ethg[2] <--> GigabitCable20cm <--> Node_1_C_1.ethg[0];
-        Bound_2.ethg[2] <--> GigabitCable20cm <--> Node_1_C_2.ethg[0];
+        Master_1.ethg[0] <--> GigabitCable20cm <--> Switch_1.ethg[0];
+        Master_1.ethg[1] <--> GigabitCable20cm <--> Switch_2.ethg[0];
+//        Master_1.ethg[2] <--> GigabitCable20cm <--> Switch_3.ethg[0];
+//        Master_1.ethg[3] <--> GigabitCable20cm <--> Switch_4.ethg[0];
 
-        Master_1_C_1.ethg[0] <--> GigabitCable20cm <--> Bound_1.ethg[0];
+        Switch_1.ethg[1] <--> GigabitCable20cm <--> VotingSlave_1.ethg[0];
+        Switch_2.ethg[1] <--> GigabitCable20cm <--> VotingSlave_1.ethg[1];
+//        Switch_3.ethg[1] <--> GigabitCable20cm <--> VotingSlave_1.ethg[2];
+//        Switch_4.ethg[1] <--> GigabitCable20cm <--> VotingSlave_1.ethg[3];
+
+        //
+        Switch_1.ethg[2] <--> GigabitCable20cm <--> StandardSlave_1.ethg[0];
 }
