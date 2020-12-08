@@ -43,10 +43,10 @@ network Nodes1Paths2
                 PTP_Stack[1].RedundantVoting = true;
                 PTP_Stack[2].DomainNumber = "DOMAIN_ALTERNATE_2";
                 PTP_Stack[2].RedundantVoting = true;
-//                PTP_Stack[3].DomainNumber = "DOMAIN_ALTERNATE_3";
-//                PTP_Stack[3].RedundantVoting = true;
+                PTP_Stack[3].DomainNumber = "DOMAIN_ALTERNATE_3";
+                PTP_Stack[3].RedundantVoting = true;
             gates:
-                ethg[3];
+                ethg[4];
         }
 
         Switch_1: PTP_TC_E2E_2S_M3 {
@@ -88,10 +88,10 @@ network Nodes1Paths2
                 PTP_Stack[1].RedundantVoting = true;
                 PTP_Stack[2].DomainNumber = "DOMAIN_ALTERNATE_2";
                 PTP_Stack[2].RedundantVoting = true;
-//                PTP_Stack[3].DomainNumber = "DOMAIN_ALTERNATE_3";
-//                PTP_Stack[3].RedundantVoting = true;
+                PTP_Stack[3].DomainNumber = "DOMAIN_ALTERNATE_3";
+                PTP_Stack[3].RedundantVoting = true;
             gates:
-                ethg[3];
+                ethg[4];
         }
 
         StandardSlave_1: PTP_EN_E2E_2S_SO {
@@ -124,14 +124,14 @@ network Nodes1Paths2
 
         Master_1.ethg[0] <--> GigabitCable20cm <--> Switch_1.ethg[0];
         Master_1.ethg[1] <--> GigabitCable20cm <--> Switch_2.ethg[0];
-//        Master_1.ethg[2] <--> GigabitCable20cm <--> Switch_3.ethg[0];
+        Master_1.ethg[2] <--> GigabitCable20cm <--> Switch_3.ethg[0];
 //        Master_1.ethg[3] <--> GigabitCable20cm <--> Switch_4.ethg[0];
 
         Switch_1.ethg[1] <--> GigabitCable20cm <--> VotingSlave_1.ethg[0];
         Switch_2.ethg[1] <--> GigabitCable20cm <--> VotingSlave_1.ethg[1];
-//        Switch_3.ethg[1] <--> GigabitCable20cm <--> VotingSlave_1.ethg[2];
+        Switch_3.ethg[1] <--> GigabitCable20cm <--> VotingSlave_1.ethg[2];
 //        Switch_4.ethg[1] <--> GigabitCable20cm <--> VotingSlave_1.ethg[3];
 
-        //
+        
         Switch_1.ethg[2] <--> GigabitCable20cm <--> StandardSlave_1.ethg[0];
 }
