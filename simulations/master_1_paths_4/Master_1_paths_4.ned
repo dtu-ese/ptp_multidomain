@@ -70,43 +70,9 @@ network Master1Paths4
                 ethg[4];
         }
 
-
         Switch_4: PTP_TC_E2E_2S_M3 {
             parameters:
                 @display("p=686,184");
-            gates:
-                ethg[4];
-        }
-
-
-        FTASlave_1: PTP_RD_EN_E2E_2S_SO {
-            parameters:
-                @display("p=616,300");
-                PTP_Stack[0].DomainNumber = "DOMAIN_DEFAULT";
-                PTP_Stack[0].RedundantVoting = true;
-                PTP_Stack[1].DomainNumber = "DOMAIN_ALTERNATE_1";
-                PTP_Stack[1].RedundantVoting = true;
-                PTP_Stack[2].DomainNumber = "DOMAIN_ALTERNATE_2";
-                PTP_Stack[2].RedundantVoting = true;
-                PTP_Stack[3].DomainNumber = "DOMAIN_ALTERNATE_3";
-                PTP_Stack[3].RedundantVoting = true;
-                ClockServoVoting = "FTA";
-            gates:
-                ethg[4];
-        }
-
-        AVGSlave_1: PTP_RD_EN_E2E_2S_SO {
-            parameters:
-                @display("p=416,300");
-                PTP_Stack[0].DomainNumber = "DOMAIN_DEFAULT";
-                PTP_Stack[0].RedundantVoting = true;
-                PTP_Stack[1].DomainNumber = "DOMAIN_ALTERNATE_1";
-                PTP_Stack[1].RedundantVoting = true;
-                PTP_Stack[2].DomainNumber = "DOMAIN_ALTERNATE_2";
-                PTP_Stack[2].RedundantVoting = true;
-                PTP_Stack[3].DomainNumber = "DOMAIN_ALTERNATE_3";
-                PTP_Stack[3].RedundantVoting = true;
-                ClockServoVoting = "AVG";
             gates:
                 ethg[4];
         }
@@ -119,23 +85,56 @@ network Master1Paths4
             gates:
                 ethg[1];
         }
-
-        timeDiff_FTA: TimeDiffObserver {
-            @display("p=616,392");
-            ClockPath1 = default("^.Master_1.Clock");
-            ClockPath2 = default("^.FTASlave_1.Clock");
+        
+        AVGSlave_1: PTP_RD_EN_E2E_2S_SO {
+            parameters:
+                @display("p=427,300");
+                PTP_Stack[0].DomainNumber = "DOMAIN_DEFAULT";
+                PTP_Stack[0].RedundantVoting = true;
+                PTP_Stack[1].DomainNumber = "DOMAIN_ALTERNATE_1";
+                PTP_Stack[1].RedundantVoting = true;
+                PTP_Stack[2].DomainNumber = "DOMAIN_ALTERNATE_2";
+                PTP_Stack[2].RedundantVoting = true;
+                PTP_Stack[3].DomainNumber = "DOMAIN_ALTERNATE_3";
+                PTP_Stack[3].RedundantVoting = true;
+                ClockServoAggregation = "AVG";
+            gates:
+                ethg[4];
         }
 
-        timeDiff_AVG: TimeDiffObserver {
-            @display("p=416,392");
-            ClockPath1 = default("^.Master_1.Clock");
-            ClockPath2 = default("^.AVGSlave_1.Clock");
+        FTASlave_1: PTP_RD_EN_E2E_2S_SO {
+            parameters:
+                @display("p=616,300");
+                PTP_Stack[0].DomainNumber = "DOMAIN_DEFAULT";
+                PTP_Stack[0].RedundantVoting = true;
+                PTP_Stack[1].DomainNumber = "DOMAIN_ALTERNATE_1";
+                PTP_Stack[1].RedundantVoting = true;
+                PTP_Stack[2].DomainNumber = "DOMAIN_ALTERNATE_2";
+                PTP_Stack[2].RedundantVoting = true;
+                PTP_Stack[3].DomainNumber = "DOMAIN_ALTERNATE_3";
+                PTP_Stack[3].RedundantVoting = true;
+                ClockServoAggregation = "FTA";
+            gates:
+                ethg[4];
         }
+
 
         timeDiff_Std: TimeDiffObserver {
             @display("p=276,392");
             ClockPath1 = default("^.Master_1.Clock");
             ClockPath2 = default("^.StdSlave_1.NIC.Clock");
+        }
+
+        timeDiff_AVG: TimeDiffObserver {
+            @display("p=427,392");
+            ClockPath1 = default("^.Master_1.Clock");
+            ClockPath2 = default("^.AVGSlave_1.Clock");
+        }
+
+        timeDiff_FTA: TimeDiffObserver {
+            @display("p=616,392");
+            ClockPath1 = default("^.Master_1.Clock");
+            ClockPath2 = default("^.FTASlave_1.Clock");
         }
 
         scenarioManager: ScenarioManager {
@@ -150,15 +149,15 @@ network Master1Paths4
         Master_1.ethg[2] <--> GigabitCable20cm <--> Switch_3.ethg[0];
         Master_1.ethg[3] <--> GigabitCable20cm <--> Switch_4.ethg[0];
 
-        Switch_1.ethg[1] <--> GigabitCable20cm <--> FTASlave_1.ethg[0];
-        Switch_2.ethg[1] <--> GigabitCable20cm <--> FTASlave_1.ethg[1];
-        Switch_3.ethg[1] <--> GigabitCable20cm <--> FTASlave_1.ethg[2];
-        Switch_4.ethg[1] <--> GigabitCable20cm <--> FTASlave_1.ethg[3];
+        Switch_1.ethg[1] <--> GigabitCable20cm <--> AVGSlave_1.ethg[0];
+        Switch_2.ethg[1] <--> GigabitCable20cm <--> AVGSlave_1.ethg[1];
+        Switch_3.ethg[1] <--> GigabitCable20cm <--> AVGSlave_1.ethg[2];
+        Switch_4.ethg[1] <--> GigabitCable20cm <--> AVGSlave_1.ethg[3];
 
-        Switch_1.ethg[2] <--> GigabitCable20cm <--> AVGSlave_1.ethg[0];
-        Switch_2.ethg[2] <--> GigabitCable20cm <--> AVGSlave_1.ethg[1];
-        Switch_3.ethg[2] <--> GigabitCable20cm <--> AVGSlave_1.ethg[2];
-        Switch_4.ethg[2] <--> GigabitCable20cm <--> AVGSlave_1.ethg[3];
+        Switch_1.ethg[2] <--> GigabitCable20cm <--> FTASlave_1.ethg[0];
+        Switch_2.ethg[2] <--> GigabitCable20cm <--> FTASlave_1.ethg[1];
+        Switch_3.ethg[2] <--> GigabitCable20cm <--> FTASlave_1.ethg[2];
+        Switch_4.ethg[2] <--> GigabitCable20cm <--> FTASlave_1.ethg[3];
 
         Switch_1.ethg[3] <--> GigabitCable20cm <--> StdSlave_1.ethg[0];
 }

@@ -1,14 +1,14 @@
 version 2
-run General-0-20201209-16:40:08-11998
+run General-0-20201210-19:05:15-50370
 attr configname General
-attr datetime 20201209-16:40:08
+attr datetime 20201210-19:05:15
 attr experiment General
 attr inifile omnetpp.ini
 attr iterationvars ""
 attr iterationvars2 $repetition=0
 attr measurement ""
 attr network Master1Paths4
-attr processid 11998
+attr processid 50370
 attr repetition 0
 attr replication #0
 attr resultdir results
@@ -16,13 +16,13 @@ attr runnumber 0
 attr seedset 0
 
 statistic Master1Paths4.Master_1.Clock 	TimeDeviation:stats
-field count 1
-field mean 0
+field count 0
+field mean -nan
 field stddev -nan
 field sum 0
 field sqrsum 0
-field min 0
-field max 0
+field min -nan
+field max -nan
 statistic Master1Paths4.Master_1.PTP_Stack[0] 	meanPathDelay_raw:stats
 field count 0
 field mean -nan
@@ -32,15 +32,15 @@ field sqrsum 0
 field min -nan
 field max -nan
 statistic Master1Paths4.Master_1.PTP_Stack[0] 	meanPathDelay:stats
-field count 1
-field mean 0
+field count 0
+field mean -nan
 field stddev -nan
 field sum 0
 field sqrsum 0
-field min 0
-field max 0
+field min -nan
+field max -nan
 statistic Master1Paths4.Master_1.PTP_Stack[0] 	stepsRemoved:stats
-field count 2879
+field count 2400
 field mean 0
 field stddev 0
 field sum 0
@@ -56,7 +56,7 @@ field sqrsum 0
 field min -nan
 field max -nan
 statistic Master1Paths4.Master_1.PTP_Stack[0] 	offsetFromMaster:stats
-field count 2879
+field count 2400
 field mean 0
 field stddev 0
 field sum 0
@@ -72,15 +72,15 @@ field sqrsum 0
 field min -nan
 field max -nan
 statistic Master1Paths4.Master_1.PTP_Stack[1] 	meanPathDelay:stats
-field count 1
-field mean 0
+field count 0
+field mean -nan
 field stddev -nan
 field sum 0
 field sqrsum 0
-field min 0
-field max 0
+field min -nan
+field max -nan
 statistic Master1Paths4.Master_1.PTP_Stack[1] 	stepsRemoved:stats
-field count 2877
+field count 2400
 field mean 0
 field stddev 0
 field sum 0
@@ -96,7 +96,7 @@ field sqrsum 0
 field min -nan
 field max -nan
 statistic Master1Paths4.Master_1.PTP_Stack[1] 	offsetFromMaster:stats
-field count 2877
+field count 2400
 field mean 0
 field stddev 0
 field sum 0
@@ -112,15 +112,15 @@ field sqrsum 0
 field min -nan
 field max -nan
 statistic Master1Paths4.Master_1.PTP_Stack[2] 	meanPathDelay:stats
-field count 1
-field mean 0
+field count 0
+field mean -nan
 field stddev -nan
 field sum 0
 field sqrsum 0
-field min 0
-field max 0
+field min -nan
+field max -nan
 statistic Master1Paths4.Master_1.PTP_Stack[2] 	stepsRemoved:stats
-field count 2878
+field count 2400
 field mean 0
 field stddev 0
 field sum 0
@@ -136,7 +136,7 @@ field sqrsum 0
 field min -nan
 field max -nan
 statistic Master1Paths4.Master_1.PTP_Stack[2] 	offsetFromMaster:stats
-field count 2878
+field count 2400
 field mean 0
 field stddev 0
 field sum 0
@@ -152,15 +152,15 @@ field sqrsum 0
 field min -nan
 field max -nan
 statistic Master1Paths4.Master_1.PTP_Stack[3] 	meanPathDelay:stats
-field count 1
-field mean 0
+field count 0
+field mean -nan
 field stddev -nan
 field sum 0
 field sqrsum 0
-field min 0
-field max 0
+field min -nan
+field max -nan
 statistic Master1Paths4.Master_1.PTP_Stack[3] 	stepsRemoved:stats
-field count 2878
+field count 2400
 field mean 0
 field stddev 0
 field sum 0
@@ -176,7 +176,7 @@ field sqrsum 0
 field min -nan
 field max -nan
 statistic Master1Paths4.Master_1.PTP_Stack[3] 	offsetFromMaster:stats
-field count 2878
+field count 2400
 field mean 0
 field stddev 0
 field sum 0
@@ -272,45 +272,45 @@ field sqrsum 0
 field min -nan
 field max -nan
 statistic Master1Paths4.Switch_1.PTP_Stack 	meanPathDelay:stats
-field count 1
-field mean 0
+field count 0
+field mean -nan
 field stddev -nan
 field sum 0
 field sqrsum 0
-field min 0
-field max 0
+field min -nan
+field max -nan
 statistic Master1Paths4.Switch_1.PTP_Stack 	stepsRemoved:stats
-field count 3833
-field mean 0.49908687711975
-field stddev 0.50006440192492
-field sum 1913
-field sqrsum 1913
+field count 2880
+field mean 0.334375
+field stddev 0.47185343794258
+field sum 963
+field sqrsum 963
 field min 0
 field max 1
 statistic Master1Paths4.Switch_1.PTP_Stack 	offsetFromMaster_raw:stats
-field count 3820
-field mean 8.9849043146597e-06
-field stddev 0.00019614342096742
-field sum 0.034322334482
-field sqrsum 0.00014723387351882
-field min -5e-08
-field max 0.004290028099
+field count 1920
+field mean -1.6819036458333e-09
+field stddev 2.3537651852691e-08
+field sum -3.229255e-06
+field sqrsum 1.068597699801e-12
+field min -6.4959e-08
+field max 6.6142e-08
 statistic Master1Paths4.Switch_1.PTP_Stack 	offsetFromMaster:stats
-field count 5740
-field mean 2.242168815331e-06
-field stddev 9.8059376040241e-05
-field sum 0.012870049
-field sqrsum 5.5213021838055e-05
-field min -4.6e-08
-field max 0.004290028
+field count 3837
+field mean -9.1217096690122e-12
+field stddev 6.421310826213e-09
+field sum -3.5e-08
+field sqrsum 1.58171e-13
+field min -3.6e-08
+field max 3.1e-08
 statistic Master1Paths4.Switch_1.NIC.Clock 	TimeDeviation:stats
-field count 1
-field mean 0
+field count 0
+field mean -nan
 field stddev -nan
 field sum 0
 field sqrsum 0
-field min 0
-field max 0
+field min -nan
+field max -nan
 scalar Master1Paths4.Switch_1.NIC.Encap 	pauseSent:count 	0
 attr title  "pause sent, count"
 scalar Master1Paths4.Switch_1.NIC.Encap 	pauseSent:sum 	0
@@ -340,15 +340,15 @@ field sqrsum 0
 field min -nan
 field max -nan
 statistic Master1Paths4.Switch_2.PTP_Stack 	meanPathDelay:stats
-field count 1
-field mean 0
+field count 0
+field mean -nan
 field stddev -nan
 field sum 0
 field sqrsum 0
-field min 0
-field max 0
+field min -nan
+field max -nan
 statistic Master1Paths4.Switch_2.PTP_Stack 	stepsRemoved:stats
-field count 11509
+field count 9600
 field mean 0
 field stddev 0
 field sum 0
@@ -364,7 +364,7 @@ field sqrsum 0
 field min -nan
 field max -nan
 statistic Master1Paths4.Switch_2.PTP_Stack 	offsetFromMaster:stats
-field count 11509
+field count 9600
 field mean 0
 field stddev 0
 field sum 0
@@ -372,13 +372,13 @@ field sqrsum 0
 field min 0
 field max 0
 statistic Master1Paths4.Switch_2.NIC.Clock 	TimeDeviation:stats
-field count 1
-field mean 0
+field count 0
+field mean -nan
 field stddev -nan
 field sum 0
 field sqrsum 0
-field min 0
-field max 0
+field min -nan
+field max -nan
 scalar Master1Paths4.Switch_2.NIC.Encap 	pauseSent:count 	0
 attr title  "pause sent, count"
 scalar Master1Paths4.Switch_2.NIC.Encap 	pauseSent:sum 	0
@@ -408,15 +408,15 @@ field sqrsum 0
 field min -nan
 field max -nan
 statistic Master1Paths4.Switch_3.PTP_Stack 	meanPathDelay:stats
-field count 1
-field mean 0
+field count 0
+field mean -nan
 field stddev -nan
 field sum 0
 field sqrsum 0
-field min 0
-field max 0
+field min -nan
+field max -nan
 statistic Master1Paths4.Switch_3.PTP_Stack 	stepsRemoved:stats
-field count 11509
+field count 9600
 field mean 0
 field stddev 0
 field sum 0
@@ -432,7 +432,7 @@ field sqrsum 0
 field min -nan
 field max -nan
 statistic Master1Paths4.Switch_3.PTP_Stack 	offsetFromMaster:stats
-field count 11509
+field count 9600
 field mean 0
 field stddev 0
 field sum 0
@@ -440,13 +440,13 @@ field sqrsum 0
 field min 0
 field max 0
 statistic Master1Paths4.Switch_3.NIC.Clock 	TimeDeviation:stats
-field count 1
-field mean 0
+field count 0
+field mean -nan
 field stddev -nan
 field sum 0
 field sqrsum 0
-field min 0
-field max 0
+field min -nan
+field max -nan
 scalar Master1Paths4.Switch_3.NIC.Encap 	pauseSent:count 	0
 attr title  "pause sent, count"
 scalar Master1Paths4.Switch_3.NIC.Encap 	pauseSent:sum 	0
@@ -476,15 +476,15 @@ field sqrsum 0
 field min -nan
 field max -nan
 statistic Master1Paths4.Switch_4.PTP_Stack 	meanPathDelay:stats
-field count 1
-field mean 0
+field count 0
+field mean -nan
 field stddev -nan
 field sum 0
 field sqrsum 0
-field min 0
-field max 0
+field min -nan
+field max -nan
 statistic Master1Paths4.Switch_4.PTP_Stack 	stepsRemoved:stats
-field count 11505
+field count 9600
 field mean 0
 field stddev 0
 field sum 0
@@ -500,7 +500,7 @@ field sqrsum 0
 field min -nan
 field max -nan
 statistic Master1Paths4.Switch_4.PTP_Stack 	offsetFromMaster:stats
-field count 11505
+field count 9600
 field mean 0
 field stddev 0
 field sum 0
@@ -508,13 +508,13 @@ field sqrsum 0
 field min 0
 field max 0
 statistic Master1Paths4.Switch_4.NIC.Clock 	TimeDeviation:stats
-field count 1
-field mean 0
+field count 0
+field mean -nan
 field stddev -nan
 field sum 0
 field sqrsum 0
-field min 0
-field max 0
+field min -nan
+field max -nan
 scalar Master1Paths4.Switch_4.NIC.Encap 	pauseSent:count 	0
 attr title  "pause sent, count"
 scalar Master1Paths4.Switch_4.NIC.Encap 	pauseSent:sum 	0
@@ -535,358 +535,202 @@ scalar Master1Paths4.Switch_4.NIC.Encap 	encapPk:sum(packetBytes) 	0
 attr interpolationmode  none
 attr source  encapPk
 attr title  "packets encapsulated, sum(packetBytes)"
-statistic Master1Paths4.FTASlave_1.Clock 	TimeDeviation:stats
-field count 1
-field mean 0
+statistic Master1Paths4.StdSlave_1.PTP_Stack 	meanPathDelay_raw:stats
+field count 1920
+field mean 3.6738974947917e-07
+field stddev 2.0983841463998e-06
+field sum 0.000705388319
+field sqrsum 8.7089239914321e-09
+field min -8.523124e-06
+field max 6.999403e-06
+statistic Master1Paths4.StdSlave_1.PTP_Stack 	meanPathDelay:stats
+field count 1655
+field mean 3.9510090634441e-07
+field stddev 9.5148263740318e-07
+field sum 0.000653892
+field sqrsum 1.755751294e-09
+field min -3.542e-06
+field max 4.175e-06
+statistic Master1Paths4.StdSlave_1.PTP_Stack 	stepsRemoved:stats
+field count 964
+field mean 0.99896265560166
+field stddev 0.032207831320041
+field sum 963
+field sqrsum 963
+field min 0
+field max 1
+statistic Master1Paths4.StdSlave_1.PTP_Stack 	offsetFromMaster_raw:stats
+field count 1920
+field mean -1.38155984375e-08
+field stddev 2.9107470017895e-06
+field sum -2.6525949e-05
+field sqrsum 1.625899439193e-08
+field min -1.0425322e-05
+field max 1.0143856e-05
+statistic Master1Paths4.StdSlave_1.NIC.Clock 	TimeDeviation:stats
+field count 0
+field mean -nan
 field stddev -nan
 field sum 0
 field sqrsum 0
-field min 0
-field max 0
-statistic Master1Paths4.FTASlave_1.PTP_Stack[0] 	meanPathDelay_raw:stats
-field count 3799
-field mean 2.6998428618057e-06
-field stddev 0.00011846297496933
-field sum 0.010256703032
-field sqrsum 5.332683500021e-05
-field min -0.002711589037
-field max 0.003749551333
-statistic Master1Paths4.FTASlave_1.PTP_Stack[0] 	meanPathDelay:stats
-field count 3144
-field mean 1.6955699745547e-06
-field stddev 3.0742449795695e-05
-field sum 0.005330872
-field sqrsum 2.979482570204e-06
-field min -0.000100831
-field max 0.001078668
-statistic Master1Paths4.FTASlave_1.PTP_Stack[0] 	stepsRemoved:stats
-field count 1862
-field mean 0.9983888292159
-field stddev 0.040117817404734
-field sum 1859
-field sqrsum 1859
-field min 0
-field max 1
-statistic Master1Paths4.FTASlave_1.PTP_Stack[0] 	offsetFromMaster_raw:stats
-field count 3818
-field mean -5.5579961155055e-06
-field stddev 0.00045518774369924
-field sum -0.021220429169
-field sqrsum 0.00079098462471036
-field min -0.007852719422
-field max 0.005008074
-statistic Master1Paths4.FTASlave_1.PTP_Stack[1] 	meanPathDelay_raw:stats
-field count 5723
-field mean 7.2111479276603e-07
-field stddev 8.9199916473263e-05
-field sum 0.004126939959
-field sqrsum 4.5530784812999e-05
-field min -0.003796043885
-field max 0.002137336378
-statistic Master1Paths4.FTASlave_1.PTP_Stack[1] 	meanPathDelay:stats
-field count 4639
-field mean 1.334006466911e-06
-field stddev 2.4325748313488e-05
-field sum 0.006188456
-field sqrsum 2.752754980154e-06
-field min -3.382e-05
-field max 0.000987611
-statistic Master1Paths4.FTASlave_1.PTP_Stack[1] 	stepsRemoved:stats
-field count 2825
-field mean 0.99893805309735
-field stddev 0.032575985259288
-field sum 2822
-field sqrsum 2822
-field min 0
-field max 1
-statistic Master1Paths4.FTASlave_1.PTP_Stack[1] 	offsetFromMaster_raw:stats
-field count 5738
-field mean -2.9643798373998e-06
-field stddev 0.00037771601016965
-field sum -0.017009611507
-field sqrsum 0.00081854468089926
-field min -0.00728545554
-field max 0.005000674
-statistic Master1Paths4.FTASlave_1.PTP_Stack[2] 	meanPathDelay_raw:stats
-field count 7646
-field mean 6.8834618584881e-07
-field stddev 9.3395041165611e-05
-field sum 0.005263094937
-field sqrsum 6.6688157577349e-05
-field min -0.002703564037
-field max 0.004641340044
-statistic Master1Paths4.FTASlave_1.PTP_Stack[2] 	meanPathDelay:stats
-field count 6196
-field mean -1.9651016785022e-07
-field stddev 2.1560813249146e-05
-field sum -0.001217577
-field sqrsum 2.880100664301e-06
-field min -0.000871278
-field max 7.5749e-05
-statistic Master1Paths4.FTASlave_1.PTP_Stack[2] 	stepsRemoved:stats
-field count 3781
-field mean 0.99920655911135
-field stddev 0.028160629940749
-field sum 3778
-field sqrsum 3778
-field min 0
-field max 1
-statistic Master1Paths4.FTASlave_1.PTP_Stack[2] 	offsetFromMaster_raw:stats
-field count 7659
-field mean 8.1354206671889e-07
-field stddev 0.00033063555500194
-field sum 0.006230918689
-field sqrsum 0.00083717663534686
-field min -0.006771501422
-field max 0.005000724
-statistic Master1Paths4.FTASlave_1.PTP_Stack[3] 	meanPathDelay_raw:stats
-field count 9562
-field mean 2.3732757467057e-07
-field stddev 7.1291608253322e-05
-field sum 0.002269326269
-field sqrsum 4.8594258041327e-05
-field min -0.004394185225
-field max 0.002134536378
-statistic Master1Paths4.FTASlave_1.PTP_Stack[3] 	meanPathDelay:stats
-field count 7884
-field mean 6.6829781836631e-08
-field stddev 1.3598309410138e-05
-field sum 0.000526886
-field sqrsum 1.457712421986e-06
-field min -0.000620449
-field max 7.5725e-05
-statistic Master1Paths4.FTASlave_1.PTP_Stack[3] 	stepsRemoved:stats
-field count 4745
-field mean 0.99936775553214
-field stddev 0.02513917108768
-field sum 4742
-field sqrsum 4742
-field min 0
-field max 1
-statistic Master1Paths4.FTASlave_1.PTP_Stack[3] 	offsetFromMaster_raw:stats
-field count 9578
-field mean 2.5957831854249e-07
-field stddev 0.00028229632357406
-field sum 0.002486241135
-field sqrsum 0.00076320340475827
-field min -0.006771401422
-field max 0.005000774
-scalar Master1Paths4.FTASlave_1.NIC_Clockless[0].Encap 	pauseSent:count 	0
+field min -nan
+field max -nan
+scalar Master1Paths4.StdSlave_1.NIC.Encap 	pauseSent:count 	0
 attr title  "pause sent, count"
-scalar Master1Paths4.FTASlave_1.NIC_Clockless[0].Encap 	pauseSent:sum 	0
+scalar Master1Paths4.StdSlave_1.NIC.Encap 	pauseSent:sum 	0
 attr title  "pause sent, sum"
-scalar Master1Paths4.FTASlave_1.NIC_Clockless[0].Encap 	decapPk:count 	0
+scalar Master1Paths4.StdSlave_1.NIC.Encap 	decapPk:count 	0
 attr interpolationmode  none
 attr source  decapPk
 attr title  "packets decapsulated, count"
-scalar Master1Paths4.FTASlave_1.NIC_Clockless[0].Encap 	decapPk:sum(packetBytes) 	0
+scalar Master1Paths4.StdSlave_1.NIC.Encap 	decapPk:sum(packetBytes) 	0
 attr interpolationmode  none
 attr source  decapPk
 attr title  "packets decapsulated, sum(packetBytes)"
-scalar Master1Paths4.FTASlave_1.NIC_Clockless[0].Encap 	encapPk:count 	0
+scalar Master1Paths4.StdSlave_1.NIC.Encap 	encapPk:count 	0
 attr interpolationmode  none
 attr source  encapPk
 attr title  "packets encapsulated, count"
-scalar Master1Paths4.FTASlave_1.NIC_Clockless[0].Encap 	encapPk:sum(packetBytes) 	0
-attr interpolationmode  none
-attr source  encapPk
-attr title  "packets encapsulated, sum(packetBytes)"
-scalar Master1Paths4.FTASlave_1.NIC_Clockless[1].Encap 	pauseSent:count 	0
-attr title  "pause sent, count"
-scalar Master1Paths4.FTASlave_1.NIC_Clockless[1].Encap 	pauseSent:sum 	0
-attr title  "pause sent, sum"
-scalar Master1Paths4.FTASlave_1.NIC_Clockless[1].Encap 	decapPk:count 	0
-attr interpolationmode  none
-attr source  decapPk
-attr title  "packets decapsulated, count"
-scalar Master1Paths4.FTASlave_1.NIC_Clockless[1].Encap 	decapPk:sum(packetBytes) 	0
-attr interpolationmode  none
-attr source  decapPk
-attr title  "packets decapsulated, sum(packetBytes)"
-scalar Master1Paths4.FTASlave_1.NIC_Clockless[1].Encap 	encapPk:count 	0
-attr interpolationmode  none
-attr source  encapPk
-attr title  "packets encapsulated, count"
-scalar Master1Paths4.FTASlave_1.NIC_Clockless[1].Encap 	encapPk:sum(packetBytes) 	0
-attr interpolationmode  none
-attr source  encapPk
-attr title  "packets encapsulated, sum(packetBytes)"
-scalar Master1Paths4.FTASlave_1.NIC_Clockless[2].Encap 	pauseSent:count 	0
-attr title  "pause sent, count"
-scalar Master1Paths4.FTASlave_1.NIC_Clockless[2].Encap 	pauseSent:sum 	0
-attr title  "pause sent, sum"
-scalar Master1Paths4.FTASlave_1.NIC_Clockless[2].Encap 	decapPk:count 	0
-attr interpolationmode  none
-attr source  decapPk
-attr title  "packets decapsulated, count"
-scalar Master1Paths4.FTASlave_1.NIC_Clockless[2].Encap 	decapPk:sum(packetBytes) 	0
-attr interpolationmode  none
-attr source  decapPk
-attr title  "packets decapsulated, sum(packetBytes)"
-scalar Master1Paths4.FTASlave_1.NIC_Clockless[2].Encap 	encapPk:count 	0
-attr interpolationmode  none
-attr source  encapPk
-attr title  "packets encapsulated, count"
-scalar Master1Paths4.FTASlave_1.NIC_Clockless[2].Encap 	encapPk:sum(packetBytes) 	0
-attr interpolationmode  none
-attr source  encapPk
-attr title  "packets encapsulated, sum(packetBytes)"
-scalar Master1Paths4.FTASlave_1.NIC_Clockless[3].Encap 	pauseSent:count 	0
-attr title  "pause sent, count"
-scalar Master1Paths4.FTASlave_1.NIC_Clockless[3].Encap 	pauseSent:sum 	0
-attr title  "pause sent, sum"
-scalar Master1Paths4.FTASlave_1.NIC_Clockless[3].Encap 	decapPk:count 	0
-attr interpolationmode  none
-attr source  decapPk
-attr title  "packets decapsulated, count"
-scalar Master1Paths4.FTASlave_1.NIC_Clockless[3].Encap 	decapPk:sum(packetBytes) 	0
-attr interpolationmode  none
-attr source  decapPk
-attr title  "packets decapsulated, sum(packetBytes)"
-scalar Master1Paths4.FTASlave_1.NIC_Clockless[3].Encap 	encapPk:count 	0
-attr interpolationmode  none
-attr source  encapPk
-attr title  "packets encapsulated, count"
-scalar Master1Paths4.FTASlave_1.NIC_Clockless[3].Encap 	encapPk:sum(packetBytes) 	0
+scalar Master1Paths4.StdSlave_1.NIC.Encap 	encapPk:sum(packetBytes) 	0
 attr interpolationmode  none
 attr source  encapPk
 attr title  "packets encapsulated, sum(packetBytes)"
 statistic Master1Paths4.AVGSlave_1.Clock 	TimeDeviation:stats
-field count 1
-field mean 0
+field count 0
+field mean -nan
 field stddev -nan
 field sum 0
 field sqrsum 0
-field min 0
-field max 0
+field min -nan
+field max -nan
 statistic Master1Paths4.AVGSlave_1.PTP_Stack[0] 	meanPathDelay_raw:stats
-field count 3779
-field mean 4.5679005927494e-07
-field stddev 0.00012656637370314
-field sum 0.001726209634
-field sqrsum 6.052074790143e-05
-field min -0.00279180287
-field max 0.00412444203
+field count 1920
+field mean 4.5015665104167e-07
+field stddev 8.562594502408e-05
+field sum 0.00086430077
+field sqrsum 1.4070117993911e-05
+field min -0.000297071436
+field max 0.000249148375
 statistic Master1Paths4.AVGSlave_1.PTP_Stack[0] 	meanPathDelay:stats
-field count 3091
-field mean 7.2748754448398e-07
-field stddev 1.815520668535e-05
-field sum 0.002248664
-field sqrsum 1.020135502096e-06
-field min -0.000292505
-field max 0.000308718
+field count 1015
+field mean -1.012481773399e-06
+field stddev 3.5307794270751e-05
+field sum -0.001027669
+field sqrsum 1.265133797105e-06
+field min -9.875e-05
+field max 8.5286e-05
 statistic Master1Paths4.AVGSlave_1.PTP_Stack[0] 	stepsRemoved:stats
-field count 1871
-field mean 0.99839657936932
-field stddev 0.040021316099095
-field sum 1868
-field sqrsum 1868
+field count 773
+field mean 0.9987063389392
+field stddev 0.03596750006328
+field sum 772
+field sqrsum 772
 field min 0
 field max 1
 statistic Master1Paths4.AVGSlave_1.PTP_Stack[0] 	offsetFromMaster_raw:stats
-field count 3817
-field mean 1.1080747259104e-05
-field stddev 0.00046472680414037
-field sum 0.042295212288
-field sqrsum 0.0008246140080462
-field min -0.006089069644
-field max 0.007450863308
+field count 1920
+field mean 2.0970926781771e-05
+field stddev 0.00034062877211627
+field sum 0.040264179421
+field sqrsum 0.00022350203315357
+field min -0.000603155851
+field max 0.000668105835
 statistic Master1Paths4.AVGSlave_1.PTP_Stack[1] 	meanPathDelay_raw:stats
-field count 5704
-field mean 1.2078544701964e-06
-field stddev 7.3379659544877e-05
-field sum 0.006889601898
-field sqrsum 3.0716549638811e-05
-field min -0.001114662572
-field max 0.00196505143
+field count 3840
+field mean 5.5918340729167e-07
+field stddev 5.6904992971192e-05
+field sum 0.002147264284
+field sqrsum 1.2432566920531e-05
+field min -0.000279402201
+field max 0.000259366103
 statistic Master1Paths4.AVGSlave_1.PTP_Stack[1] 	meanPathDelay:stats
-field count 4698
-field mean 7.1001766709238e-07
-field stddev 1.5330696990444e-05
-field sum 0.003335663
-field sqrsum 1.106305558851e-06
-field min -0.000202771
-field max 0.000668116
+field count 2667
+field mean 7.4269553805774e-07
+field stddev 2.1627889324601e-05
+field sum 0.001980769
+field sqrsum 1.248534188933e-06
+field min -9.1658e-05
+field max 0.000115811
 statistic Master1Paths4.AVGSlave_1.PTP_Stack[1] 	stepsRemoved:stats
-field count 2839
-field mean 0.99894328989081
-field stddev 0.032495621593034
-field sum 2836
-field sqrsum 2836
+field count 1730
+field mean 0.99942196531792
+field stddev 0.024042351841717
+field sum 1729
+field sqrsum 1729
 field min 0
 field max 1
 statistic Master1Paths4.AVGSlave_1.PTP_Stack[1] 	offsetFromMaster_raw:stats
-field count 5736
-field mean 6.4657574327057e-06
-field stddev 0.00038123719997247
-field sum 0.037087584634
-field sqrsum 0.00083377503748274
-field min -0.006084519644
-field max 0.007458063308
+field count 3840
+field mean 1.0016047895833e-05
+field stddev 0.00024139827510482
+field sum 0.03846162392
+field sqrsum 0.00022409576887866
+field min -0.000655851779
+field max 0.000650432652
 statistic Master1Paths4.AVGSlave_1.PTP_Stack[2] 	meanPathDelay_raw:stats
-field count 7623
-field mean 5.8020791578119e-07
-field stddev 8.6368355683448e-05
-field sum 0.004422924942
-field sqrsum 5.6858820821375e-05
-field min -0.004075923223
-field max 0.00196367643
+field count 5760
+field mean 6.1359220243055e-07
+field stddev 5.9190000506585e-05
+field sum 0.003534291086
+field sqrsum 2.0178572638716e-05
+field min -0.000292952696
+field max 0.000302876052
 statistic Master1Paths4.AVGSlave_1.PTP_Stack[2] 	meanPathDelay:stats
-field count 6420
-field mean 1.0159548286604e-06
-field stddev 2.3308585384464e-05
-field sum 0.00652243
-field sqrsum 3.494005983952e-06
-field min -0.000314129
-field max 0.000947939
+field count 4340
+field mean 5.230698156682e-07
+field stddev 2.0346648784393e-05
+field sum 0.002270123
+field sqrsum 1.797473193421e-06
+field min -0.000113721
+field max 0.00011479
 statistic Master1Paths4.AVGSlave_1.PTP_Stack[2] 	stepsRemoved:stats
-field count 3789
-field mean 0.99920823436263
-field stddev 0.028130901131887
-field sum 3786
-field sqrsum 3786
+field count 2691
+field mean 0.99962839093274
+field stddev 0.019277164398874
+field sum 2690
+field sqrsum 2690
 field min 0
 field max 1
 statistic Master1Paths4.AVGSlave_1.PTP_Stack[2] 	offsetFromMaster_raw:stats
-field count 7659
-field mean 5.6177535947252e-06
-field stddev 0.0003407210203635
-field sum 0.043026374782
-field sqrsum 0.00088926516302054
-field min -0.006084469644
-field max 0.007451863308
+field count 5760
+field mean 6.7811951435764e-06
+field stddev 0.00019847488828397
+field sum 0.039059684027
+field sqrsum 0.00022712501922732
+field min -0.000623502322
+field max 0.000699582785
 statistic Master1Paths4.AVGSlave_1.PTP_Stack[3] 	meanPathDelay_raw:stats
-field count 9543
-field mean 9.8924775489888e-07
-field stddev 7.9157079427081e-05
-field sum 0.009440391325
-field sqrsum 5.9798014923847e-05
-field min -0.002663587294
-field max 0.002969712947
+field count 7680
+field mean 4.2737407083333e-07
+field stddev 3.5589409085839e-05
+field sum 0.003282232864
+field sqrsum 9.7276705153097e-06
+field min -0.000167545721
+field max 0.000164730757
 statistic Master1Paths4.AVGSlave_1.PTP_Stack[3] 	meanPathDelay:stats
-field count 7952
-field mean 1.1545451458752e-06
-field stddev 3.0180312103348e-05
-field sum 0.009180943
-field sqrsum 7.252778011725e-06
-field min -0.000240548
-field max 0.001887004
+field count 6005
+field mean 6.8830741049126e-07
+field stddev 1.0535009896265e-05
+field sum 0.004133286
+field sqrsum 6.6920751820401e-07
+field min -9.2885e-05
+field max 8.8511e-05
 statistic Master1Paths4.AVGSlave_1.PTP_Stack[3] 	stepsRemoved:stats
-field count 4754
-field mean 0.99936895246109
-field stddev 0.025115373825508
-field sum 4751
-field sqrsum 4751
+field count 3647
+field mean 0.99972580202907
+field stddev 0.016558924208262
+field sum 3646
+field sqrsum 3646
 field min 0
 field max 1
 statistic Master1Paths4.AVGSlave_1.PTP_Stack[3] 	offsetFromMaster_raw:stats
-field count 9575
-field mean 2.5965523511227e-06
-field stddev 0.00029252315057176
-field sum 0.024861988762
-field sqrsum 0.00081930975957735
-field min -0.006187672912
-field max 0.007453913308
+field count 7680
+field mean 4.9151451755209e-06
+field stddev 0.00016825633297735
+field sum 0.037748314948
+field sqrsum 0.00021757951500257
+field min -0.000632570008
+field max 0.000668312668
 scalar Master1Paths4.AVGSlave_1.NIC_Clockless[0].Encap 	pauseSent:count 	0
 attr title  "pause sent, count"
 scalar Master1Paths4.AVGSlave_1.NIC_Clockless[0].Encap 	pauseSent:sum 	0
@@ -967,63 +811,219 @@ scalar Master1Paths4.AVGSlave_1.NIC_Clockless[3].Encap 	encapPk:sum(packetBytes)
 attr interpolationmode  none
 attr source  encapPk
 attr title  "packets encapsulated, sum(packetBytes)"
-statistic Master1Paths4.StdSlave_1.PTP_Stack 	meanPathDelay_raw:stats
-field count 3815
-field mean 8.2541603040629e-07
-field stddev 1.9578863219365e-05
-field sum 0.003148962156
-field sqrsum 1.46462701309e-06
-field min -7.191749e-06
-field max 0.001203492428
-statistic Master1Paths4.StdSlave_1.PTP_Stack 	meanPathDelay:stats
-field count 3264
-field mean 5.3592095588235e-07
-field stddev 8.973601608221e-07
-field sum 0.001749246
-field sqrsum 3.565005496e-09
-field min -3.133e-06
-field max 3.692e-06
-statistic Master1Paths4.StdSlave_1.PTP_Stack 	stepsRemoved:stats
-field count 1917
-field mean 0.99843505477308
-field stddev 0.039538736353106
-field sum 1914
-field sqrsum 1914
-field min 0
-field max 1
-statistic Master1Paths4.StdSlave_1.PTP_Stack 	offsetFromMaster_raw:stats
-field count 3817
-field mean 4.9902975394288e-06
-field stddev 0.00010980319316354
-field sum 0.019047965708
-field sqrsum 4.6103579545921e-05
-field min -1.0721455e-05
-field max 0.002404525857
-statistic Master1Paths4.StdSlave_1.NIC.Clock 	TimeDeviation:stats
-field count 1
-field mean 0
+statistic Master1Paths4.FTASlave_1.Clock 	TimeDeviation:stats
+field count 0
+field mean -nan
 field stddev -nan
 field sum 0
 field sqrsum 0
+field min -nan
+field max -nan
+statistic Master1Paths4.FTASlave_1.PTP_Stack[0] 	meanPathDelay_raw:stats
+field count 1920
+field mean 4.983397140625e-07
+field stddev 1.9767937495643e-06
+field sum 0.000956812251
+field sqrsum 7.9757198044144e-09
+field min -6.2999e-06
+field max 7.374847e-06
+statistic Master1Paths4.FTASlave_1.PTP_Stack[0] 	meanPathDelay:stats
+field count 1641
+field mean 4.88478976234e-07
+field stddev 8.7540485948095e-07
+field sum 0.000801594
+field sqrsum 1.648349032e-09
+field min -2.29e-06
+field max 3.858e-06
+statistic Master1Paths4.FTASlave_1.PTP_Stack[0] 	stepsRemoved:stats
+field count 964
+field mean 0.99896265560166
+field stddev 0.032207831320041
+field sum 963
+field sqrsum 963
 field min 0
-field max 0
-scalar Master1Paths4.StdSlave_1.NIC.Encap 	pauseSent:count 	0
+field max 1
+statistic Master1Paths4.FTASlave_1.PTP_Stack[0] 	offsetFromMaster_raw:stats
+field count 1920
+field mean 5.2035940104167e-08
+field stddev 2.7007132938548e-06
+field sum 9.9909005e-05
+field sqrsum 1.4002101414265e-08
+field min -1.0799366e-05
+field max 9.720285e-06
+statistic Master1Paths4.FTASlave_1.PTP_Stack[1] 	meanPathDelay_raw:stats
+field count 3840
+field mean 5.4389225572917e-07
+field stddev 1.655267008609e-06
+field sum 0.002088546262
+field sqrsum 1.1654454288755e-08
+field min -6.124735e-06
+field max 8.12539e-06
+statistic Master1Paths4.FTASlave_1.PTP_Stack[1] 	meanPathDelay:stats
+field count 3157
+field mean 5.4060342096927e-07
+field stddev 6.5139058025821e-07
+field sum 0.001706685
+field sqrsum 2.261761125e-09
+field min -2.266e-06
+field max 2.95e-06
+statistic Master1Paths4.FTASlave_1.PTP_Stack[1] 	stepsRemoved:stats
+field count 1924
+field mean 0.99948024948025
+field stddev 0.022798037629378
+field sum 1923
+field sqrsum 1923
+field min 0
+field max 1
+statistic Master1Paths4.FTASlave_1.PTP_Stack[1] 	offsetFromMaster_raw:stats
+field count 3840
+field mean 7.87704609375e-08
+field stddev 2.242268610992e-06
+field sum 0.00030247857
+field sqrsum 1.9325429739404e-08
+field min -1.4349615e-05
+field max 1.2186843e-05
+statistic Master1Paths4.FTASlave_1.PTP_Stack[2] 	meanPathDelay_raw:stats
+field count 5760
+field mean 5.3407642638889e-07
+field stddev 1.7167010345165e-06
+field sum 0.003076280216
+field sqrsum 1.8615101347292e-08
+field min -7.000381e-06
+field max 8.024451e-06
+statistic Master1Paths4.FTASlave_1.PTP_Stack[2] 	meanPathDelay:stats
+field count 4733
+field mean 5.3564103105853e-07
+field stddev 7.2487856433538e-07
+field sum 0.002535189
+field sqrsum 3.844375601e-09
+field min -2.49e-06
+field max 3.416e-06
+statistic Master1Paths4.FTASlave_1.PTP_Stack[2] 	stepsRemoved:stats
+field count 2884
+field mean 0.999653259362
+field stddev 0.018620973068095
+field sum 2883
+field sqrsum 2883
+field min 0
+field max 1
+statistic Master1Paths4.FTASlave_1.PTP_Stack[2] 	offsetFromMaster_raw:stats
+field count 5760
+field mean 2.6657667239583e-07
+field stddev 2.3277839041409e-06
+field sum 0.001535481633
+field sqrsum 3.1614913735559e-08
+field min -1.1083115e-05
+field max 9.633407e-06
+statistic Master1Paths4.FTASlave_1.PTP_Stack[3] 	meanPathDelay_raw:stats
+field count 7680
+field mean 5.5975399466146e-07
+field stddev 1.6469371537014e-06
+field sum 0.004298910679
+field sqrsum 2.3234867292973e-08
+field min -6.525035e-06
+field max 8.924979e-06
+statistic Master1Paths4.FTASlave_1.PTP_Stack[3] 	meanPathDelay:stats
+field count 6338
+field mean 5.5700599558221e-07
+field stddev 6.9012016981712e-07
+field sum 0.003530304
+field sqrsum 4.984497178e-09
+field min -2.267e-06
+field max 3.709e-06
+statistic Master1Paths4.FTASlave_1.PTP_Stack[3] 	stepsRemoved:stats
+field count 3844
+field mean 0.99973985431842
+field stddev 0.016129032258063
+field sum 3843
+field sqrsum 3843
+field min 0
+field max 1
+statistic Master1Paths4.FTASlave_1.PTP_Stack[3] 	offsetFromMaster_raw:stats
+field count 7680
+field mean 2.0447670143229e-07
+field stddev 2.2725555060893e-06
+field sum 0.001570381067
+field sqrsum 3.9979367329055e-08
+field min -9.595295e-06
+field max 9.634808e-06
+scalar Master1Paths4.FTASlave_1.NIC_Clockless[0].Encap 	pauseSent:count 	0
 attr title  "pause sent, count"
-scalar Master1Paths4.StdSlave_1.NIC.Encap 	pauseSent:sum 	0
+scalar Master1Paths4.FTASlave_1.NIC_Clockless[0].Encap 	pauseSent:sum 	0
 attr title  "pause sent, sum"
-scalar Master1Paths4.StdSlave_1.NIC.Encap 	decapPk:count 	0
+scalar Master1Paths4.FTASlave_1.NIC_Clockless[0].Encap 	decapPk:count 	0
 attr interpolationmode  none
 attr source  decapPk
 attr title  "packets decapsulated, count"
-scalar Master1Paths4.StdSlave_1.NIC.Encap 	decapPk:sum(packetBytes) 	0
+scalar Master1Paths4.FTASlave_1.NIC_Clockless[0].Encap 	decapPk:sum(packetBytes) 	0
 attr interpolationmode  none
 attr source  decapPk
 attr title  "packets decapsulated, sum(packetBytes)"
-scalar Master1Paths4.StdSlave_1.NIC.Encap 	encapPk:count 	0
+scalar Master1Paths4.FTASlave_1.NIC_Clockless[0].Encap 	encapPk:count 	0
 attr interpolationmode  none
 attr source  encapPk
 attr title  "packets encapsulated, count"
-scalar Master1Paths4.StdSlave_1.NIC.Encap 	encapPk:sum(packetBytes) 	0
+scalar Master1Paths4.FTASlave_1.NIC_Clockless[0].Encap 	encapPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  encapPk
+attr title  "packets encapsulated, sum(packetBytes)"
+scalar Master1Paths4.FTASlave_1.NIC_Clockless[1].Encap 	pauseSent:count 	0
+attr title  "pause sent, count"
+scalar Master1Paths4.FTASlave_1.NIC_Clockless[1].Encap 	pauseSent:sum 	0
+attr title  "pause sent, sum"
+scalar Master1Paths4.FTASlave_1.NIC_Clockless[1].Encap 	decapPk:count 	0
+attr interpolationmode  none
+attr source  decapPk
+attr title  "packets decapsulated, count"
+scalar Master1Paths4.FTASlave_1.NIC_Clockless[1].Encap 	decapPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  decapPk
+attr title  "packets decapsulated, sum(packetBytes)"
+scalar Master1Paths4.FTASlave_1.NIC_Clockless[1].Encap 	encapPk:count 	0
+attr interpolationmode  none
+attr source  encapPk
+attr title  "packets encapsulated, count"
+scalar Master1Paths4.FTASlave_1.NIC_Clockless[1].Encap 	encapPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  encapPk
+attr title  "packets encapsulated, sum(packetBytes)"
+scalar Master1Paths4.FTASlave_1.NIC_Clockless[2].Encap 	pauseSent:count 	0
+attr title  "pause sent, count"
+scalar Master1Paths4.FTASlave_1.NIC_Clockless[2].Encap 	pauseSent:sum 	0
+attr title  "pause sent, sum"
+scalar Master1Paths4.FTASlave_1.NIC_Clockless[2].Encap 	decapPk:count 	0
+attr interpolationmode  none
+attr source  decapPk
+attr title  "packets decapsulated, count"
+scalar Master1Paths4.FTASlave_1.NIC_Clockless[2].Encap 	decapPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  decapPk
+attr title  "packets decapsulated, sum(packetBytes)"
+scalar Master1Paths4.FTASlave_1.NIC_Clockless[2].Encap 	encapPk:count 	0
+attr interpolationmode  none
+attr source  encapPk
+attr title  "packets encapsulated, count"
+scalar Master1Paths4.FTASlave_1.NIC_Clockless[2].Encap 	encapPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  encapPk
+attr title  "packets encapsulated, sum(packetBytes)"
+scalar Master1Paths4.FTASlave_1.NIC_Clockless[3].Encap 	pauseSent:count 	0
+attr title  "pause sent, count"
+scalar Master1Paths4.FTASlave_1.NIC_Clockless[3].Encap 	pauseSent:sum 	0
+attr title  "pause sent, sum"
+scalar Master1Paths4.FTASlave_1.NIC_Clockless[3].Encap 	decapPk:count 	0
+attr interpolationmode  none
+attr source  decapPk
+attr title  "packets decapsulated, count"
+scalar Master1Paths4.FTASlave_1.NIC_Clockless[3].Encap 	decapPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  decapPk
+attr title  "packets decapsulated, sum(packetBytes)"
+scalar Master1Paths4.FTASlave_1.NIC_Clockless[3].Encap 	encapPk:count 	0
+attr interpolationmode  none
+attr source  encapPk
+attr title  "packets encapsulated, count"
+scalar Master1Paths4.FTASlave_1.NIC_Clockless[3].Encap 	encapPk:sum(packetBytes) 	0
 attr interpolationmode  none
 attr source  encapPk
 attr title  "packets encapsulated, sum(packetBytes)"
