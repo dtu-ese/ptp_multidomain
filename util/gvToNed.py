@@ -18,6 +18,9 @@ class NedNode():
         #self.num_gates = num_gates
         #self.domain = domain
         self.indent = indent
+        self.num_links = 1
+        if self.n_type == NedNetwork.SLAVE_TYPE:
+            self.num_links = 4
 
 
     def __str__(self):
@@ -26,46 +29,50 @@ class NedNode():
         r += t + "%s: %s {\n" % (self.name, self.n_type)
         r += t + "\tparameters:\n"
         r += t + "\t\t@display(\"p=%d,%d\");\n" % (self.hpos, self.vpos)
-        #r += t + "\tgates:\n"
-        #r += t + "\t\tethgate[%d];\n" % self.num_links
+        r += t + "\tgates:\n"
+        r += t + "\t\tethg[%d];\n" % self.num_links
         r += t + "}"
         return r
 
 class BoundNode(NedNode):
-    PORTS_PER_DOMAIN = 10
-    NUM_DOMAINS = 9
+    PORTS_PER_DOMAIN = 1
+    NUM_DOMAINS = 4
 
     def __init__(self, n_type, name, hpos, vpos, indent=1):
         NedNode.__init__(self, n_type, name, hpos, vpos)
         self.used_ports = {}
+        self.num_links = NUM_DOMAINS
         for i in range(BoundNode.NUM_DOMAINS):
-            self.used_ports[i] = i * 10
+            self.used_ports[i] = i
         self.conns = {}
 
     def add_conn(self, remote, domain):
         if remote + str(domain) in self.conns:
             return
         self.conns[remote + str(domain)] = self.used_ports[domain]
-        print("Adding conn %s <> %s (%d) (local gate %d) " % (self.name, remote, domain, self.used_ports[domain]))
         self.used_ports[domain] += 1
 
 class TCNode(NedNode):
-    PORTS_PER_DOMAIN = 10
-    NUM_DOMAINS = 9
+    PORTS_PER_DOMAIN = 1
+    NUM_DOMAINS = 4
 
     def __init__(self, n_type, name, hpos, vpos, indent=1):
         NedNode.__init__(self, n_type, name, hpos, vpos)
-        self.used_ports = {}
-        for i in range(TCNode.NUM_DOMAINS):
-            self.used_ports[i] = i * 10
+        self.used_ports = 0
+        self.num_links = 0
         self.conns = {}
 
     def add_conn(self, remote, domain):
-        if remote + str(domain) in self.conns:
+        is_switch = "SW_" in remote
+        if is_switch and remote in self.conns:
             return
-        self.conns[remote + str(domain)] = self.used_ports[domain]
-        print("Adding conn %s <> %s (%d) (local gate %d) " % (self.name, remote, domain, self.used_ports[domain]))
-        self.used_ports[domain] += 1
+        elif not is_switch and remote + str(domain) in self.conns:
+            return
+        rstring = remote if is_switch else remote + str(domain)
+        self.conns[rstring] = self.used_ports
+        print("Adding conn %s <> %s (%d) (local gate %d) " % (self.name, rstring, domain, self.used_ports))
+        self.used_ports += 1
+        self.num_links += 1
 
 class TimeDiffObserver():
     def __init__(self, name, nodea, nodeb, hpos, vpos, indent=1):
@@ -90,10 +97,10 @@ class TimeDiffObserver():
 class NedNetwork():
     H_ADD = 111
     V_ADD = 111
-    MASTER_TYPE = "RedundantPTPMaster"
-    SLAVE_TYPE = "RedundantPTPSlave"
+    MASTER_TYPE = "PTP_EN_P2P_2S_M1"
+    SLAVE_TYPE = "PTP_RD_EN_P2P_2S_SO"
     BOUND_TYPE = "RedundantPTPBound"
-    TC_TYPE = "RedundantPTPTransparent"
+    TC_TYPE = "PTP_TC_P2P_2S_M3"
     LINK_TYPE = "GigabitCable20cm"
 
     def __init__(self, name):
@@ -114,6 +121,7 @@ class NedNetwork():
 
     def add_bound(self, name):
         n = len(self.bounds)
+        print("Creating bound node %s" % name)
         bound = BoundNode(NedNetwork.BOUND_TYPE, name,
             (n+1) * NedNetwork.H_ADD, NedNetwork.V_ADD * 3)
         self.bounds.append(bound)
@@ -163,9 +171,9 @@ class NedNetwork():
         r += "\t// Slave nodes\n"
         for x in self.slaves:
             r += str(x) + "\n"
-        r += "\t// Observer nodes\n"
-        for x in self.observers:
-            r += str(x) + "\n"
+        #r += "\t// Observer nodes\n"
+        #or x in self.observers:
+        #   r += str(x) + "\n"
 
         antidupe = []
         r += "\n\tconnections allowunconnected:\n"
@@ -173,15 +181,22 @@ class NedNetwork():
             a,b,domain = x[0], x[1], x[2]
             a_gate, b_gate = domain, domain
             if a in self.bounds_map:
-                a_gate = self.bounds_map[a].conns[b + str(domain)]
+                if b + str(domain) in self.bounds_map[a].conns:
+                    a_gate = self.bounds_map[a].conns[b + str(domain)]
+                else:
+                    a_gate = self.bounds_map[a].conns[b]
             if b in self.bounds_map:
-                b_gate = self.bounds_map[b].conns[a + str(domain)]
+                if a + str(domain) in self.bounds_map[b].conns:
+                    b_gate = self.bounds_map[b].conns[a + str(domain)]
+                else:
+                    b_gate = self.bounds_map[b].conns[a]
 
             params = (a, a_gate, NedNetwork.LINK_TYPE, b, b_gate)
             s = "\t %s.ethg[%d] <--> %s <--> %s.ethg[%d];\n" % params
 
             if s in antidupe:
                 s = "//Duped: " + s
+                continue
             else:
                 antidupe.append(s)
             r += s
